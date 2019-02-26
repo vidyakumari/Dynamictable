@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dynamic Table Creation</title>
+</head>
+<body>
+    
+
+    <input type="button" value="Generate table." onclick="generate_table()">
+
+<script type="text/javascript">
+var arr=[{First_name:"Raj",Last_name:"Singh",Email:"Xinghraj@Gmail.com",id:1,Phone_no:"3489564730",Designation:"Er",DOB:"12/03/98"},
+                {First_name:"Amy",Last_name:"Jackson",Email:"jack@Gmail.com",id:2,Phone_no:"8975475730",Designation:"Professor",DOB:"31/03/98"},
+                {First_name:"Vishal",Last_name:"Agri",Email:"vish@Gmail.com",id:3,Phone_no:"42358693489",Designation:"Dr.",DOB:"22/10/97"},
+                {First_name:"Rahul",Last_name:"Kandpal",Email:"therahulkandpal@Gmail.com",id:4,Phone_no:"0879745730",Designation:"QA",DOB:"10/08/97"},
+               ]
+function generate_table() {
+     // creates a <table> element and a <tbody> element
+    var tab = document.createElement("table");
+  
+    var thead = ['First_name', 'Last_name', 'Email','id', 'Phone_no', 'Designation', 'DOB'] 
+    var row1=document.createElement('tr');
+
+    for(let i=0;i<thead.length;i++)
+    {
+      var header=document.createElement('th');
+      header.innerHTML=thead[i];
+      row1.appendChild(header);
+    }
+    tab.appendChild(row1);
+
+      for (var j = 0; j <arr.length; j++) {
+        var row = document.createElement("tr");
+
+    
+        var cell = document.createElement("td");
+        var cell1 = document.createElement("td");
+        var cell2 = document.createElement("td");
+        var cell3 = document.createElement("td");
+        var cell4 = document.createElement("td");
+        var cell5 = document.createElement("td");
+        var cell6 = document.createElement("td");
+        var cellText = document.createTextNode(arr[j].First_name);
+        var cellText1 = document.createTextNode(arr[j].Last_name);
+        var cellText2 = document.createTextNode(arr[j].Email);
+        var cellText3 = document.createTextNode(arr[j].id);
+        var cellText4 = document.createTextNode(arr[j].Phone_no);
+        var cellText5 = document.createTextNode(arr[j].Designation);
+        var cellText6 = document.createTextNode(arr[j].DOB);
+
+        cell.appendChild(cellText);
+        cell1.appendChild(cellText1);
+        cell2.appendChild(cellText2);
+        cell3.appendChild(cellText3);
+        cell4.appendChild(cellText4);
+        cell5.appendChild(cellText5);
+        cell6.appendChild(cellText6);
+
+        row.appendChild(cell);
+        row.appendChild(cell1);
+        row.appendChild(cell2);
+        row.appendChild(cell3);
+        row.appendChild(cell4);
+        row.appendChild(cell5);
+        row.appendChild(cell6);
+      
+     tab.appendChild(row);
+
+      }   
+    // appends <table> into <body>
+    document.body.appendChild(tab);
+    // sets the border attribute of tbl to 2;
+    tab.setAttribute("border", "1");
+  }
+  
+</script>
+
+</body>
+</html>
+
+
+
+
